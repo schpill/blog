@@ -21,6 +21,7 @@
             $this->session  = session(SITE_NAME);
             $this->me       = lib('me');
             $this->action   = $action;
+            $this->bucket   = new Bucket(SITE_NAME, URLSITE . 'bucket');
 
             if ($action == 404) {
                 $this->routing();
