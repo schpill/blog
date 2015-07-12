@@ -49,7 +49,7 @@
     function loadRun($lib, $args = null)
     {
         try {
-            calls($lib, $args);
+            run($lib, $args);
 
             return true;
         } catch (Excexption $e) {

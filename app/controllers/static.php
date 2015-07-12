@@ -16,30 +16,35 @@
     {
         public function __construct($action)
         {
-            $this->_name = 'static';
+            $method         = Request::method();
+            $this->_name    = 'static';
+            $this->session  = session(SITE_NAME);
+            $this->me       = lib('me');
+            $this->action   = $action;
 
             if ($action == 404) {
-                RouterLib::is404();
-            }
-
-            $method = Request::method();
-
-            $this->action = $action;
-
-            $action = Inflector::lower($method) . ucfirst(
-                Inflector::camelize(
-                    strtolower($action)
-                )
-            );
-
-            $methods = get_class_methods($this);
-
-            if (in_array($action, $methods)) {
-                $this->session = session(SITE_NAME);
-                $this->$action();
+                $this->routing();
             } else {
-                RouterLib::is404();
+                $action = Inflector::lower($method) . ucfirst(
+                    Inflector::camelize(
+                        strtolower($action)
+                    )
+                );
+
+                $methods = get_class_methods($this);
+
+                if (in_array($action, $methods)) {
+                    $this->$action();
+                } else {
+                    RouterLib::is404();
+                }
             }
+        }
+
+        private function routing()
+        {
+            $this->action = 'home';
+            // dd($_SERVER['REQUEST_URI']);
         }
 
         public function getHome()
