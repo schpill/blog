@@ -63,7 +63,7 @@
     "scripts": {
         "post-install-cmd": [
             "mkdir app/storage && chmod 0777 -R app/storage",
-            "git clone git@bitbucket.org:zeliftdevs/zeliftcore.git lib && cd fwk && composer update && rm -rf node/ && rm -rf node_modules && rm -rf sites && rm -rf public/assets && rm -rf public/bucket && rm -rf public/vendeur && rm -rf public/front && rm -rf public/crud &&  rm -rf public/img &&  rm -rf public/content &&  rm -rf public/img_cache &&  rm -rf public/zetest && rm public/mobile_api.php && rm optim-img.sh && rm -rf app/modules/emailing && rm -rf app/modules/zelift",
+            "git clone git@bitbucket.org:zeliftdevs/zeliftcore.git fwk && cd fwk && composer update && rm -rf node/ && rm -rf node_modules && rm -rf sites && rm -rf public/assets && rm -rf public/bucket && rm -rf public/vendeur && rm -rf public/front && rm -rf public/crud &&  rm -rf public/img &&  rm -rf public/content &&  rm -rf public/img_cache &&  rm -rf public/zetest && rm public/mobile_api.php && rm optim-img.sh && rm -rf app/modules/emailing && rm -rf app/modules/zelift"
         ]
     },
     "minimum-stability": "dev"
