@@ -13,6 +13,7 @@
 
     require_once FRAMEWORK_DIR . '/public/init.php';
     require_once APPLICATION_PATH . '/Bootstrap.php';
+    require_once __DIR__ . DS . '../../vendor/autoload.php';
     require_once __DIR__ . '/../../app/Bootstrap.php';
 
     Config::set('directory.store', STORAGE_PATH);

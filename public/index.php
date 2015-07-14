@@ -22,6 +22,7 @@
 
     require_once FRAMEWORK_DIR . DIRECTORY_SEPARATOR . 'public/init.php';
     require_once APPLICATION_PATH . DS . 'Bootstrap.php';
+    require_once __DIR__ . DS . '../vendor/autoload.php';
     require_once __DIR__ . DS . '../app' . DS . 'Bootstrap.php';
 
     Timer::start();
