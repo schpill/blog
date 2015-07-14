@@ -17,6 +17,13 @@
         public static $request;
         public static $data = [];
 
+        public static function cli()
+        {
+            require_once __DIR__ . DS . 'libs/helpers.php';
+
+            static::config();
+        }
+
         public static function run()
         {
             require_once __DIR__ . DS . 'libs/helpers.php';
@@ -38,6 +45,8 @@
             Alias::facade('Run', 'AppLib', 'Thin');
 
             Run::makeInstance();
+
+            Config::set('directory.store', STORAGE_PATH);
         }
 
         private static function tests()

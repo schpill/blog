@@ -1,0 +1,70 @@
+{
+    "name": "thin/standalone",
+    "description": "Standalone Project",
+    "keywords": ["thin", "Standalone"],
+    "version": "dev",
+    "authors": [
+        {
+            "name": "Gerald Plusquellec",
+            "email": "gplusquellec@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "sebastianbergmann/phpcov",
+                "version": "1.1.0",
+                "dist": {
+                    "url": "https://github.com/sebastianbergmann/phpcov/archive/1.1.0.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/sebastianbergmann/phpcov.git",
+                    "type": "git",
+                    "reference": "1.1.0"
+                },
+                "bin": [
+                    "phpcov.php"
+                ]
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.5.10",
+        "ext-gd": "*",
+        "ext-curl": "*",
+        "ext-intl": "*",
+        "ext-pdo_sqlite": "*",
+        "ext-soap": "*",
+        "ext-mongo": "*",
+        "ext-mcrypt": "*",
+        "ext-redis": "*",
+        "ext-openssl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "doctrine/annotations": ">=1.0",
+        "mikey179/vfsStream": "1.2.*",
+        "mockery/mockery": "~0.9",
+        "fabpot/php-cs-fixer": "dev-master#fcbb09b5204",
+        "satooshi/php-coveralls": "dev-master",
+        "sebastianbergmann/phpcov": "1.1.0",
+        "squizlabs/php_codesniffer": "~1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "app/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "mkdir app/storage && chmod 0777 -R app/storage",
+            "git clone git@bitbucket.org:zeliftdevs/zeliftcore.git lib && cd fwk && composer update && rm -rf node/ && rm -rf node_modules && rm -rf sites && rm -rf public/assets && rm -rf public/bucket && rm -rf public/vendeur && rm -rf public/front && rm -rf public/crud &&  rm -rf public/img &&  rm -rf public/content &&  rm -rf public/img_cache &&  rm -rf public/zetest && rm public/mobile_api.php && rm optim-img.sh && rm -rf app/modules/emailing && rm -rf app/modules/zelift",
+        ]
+    },
+    "minimum-stability": "dev"
+}
